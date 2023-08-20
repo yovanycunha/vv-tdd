@@ -43,7 +43,7 @@ public class sistemaReservaVoosTest {
         voosEsperados.add(voo1);
         voosEsperados.add(voo2);
 
-        List<Voo> voosExibidos = sistema.obterListaDeVoos();
+        List<Voo> voosExibidos = sistema.getListaDeVoos();
 
         assertEquals(voosEsperados.size(), voosExibidos.size());
     }
