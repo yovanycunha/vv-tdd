@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class sistemaReservaVoosTest {
@@ -12,8 +15,8 @@ public class sistemaReservaVoosTest {
     @BeforeEach
     public void setUp() {
         sistema = new SistemaReservaVoos();
-        Voo voo1 = new Voo("São Paulo", "Rio de Janeiro", "2023-09-15 08:30", 220.00, 100);
-        Voo voo2 = new Voo("Brasília", "Salvador", "2023-10-05 14:15", 280.50, 120);
+        voo1 = new Voo("F123","São Paulo", "Rio de Janeiro", "2023-09-15", " 08:30", 220.00, 100);
+        voo2 = new Voo("F12","Brasília", "Salvador", "2023-10-05", " 14:15", 280.50, 120);
         sistema.adicionarVoo(voo1);
         sistema.adicionarVoo(voo2);
         reserva1 = sistema.reservarVoo(voo1, "João da Silva", 2, "joao@email.com");
@@ -31,19 +34,19 @@ public class sistemaReservaVoosTest {
         assertTrue(sistema.getReservas().contains(reserva1));
     }
 
-    @Test
-    public void cancelarReservaTest() {
-        assertTrue(sistema.cancelarReserva(reserva2.getCodigoReserva()));
-        assertFalse(sistema.getReservas().contains(reserva2));
+   @Test
+   public void cancelarReservaTest() {
+       assertTrue(sistema.cancelarReserva(reserva2));
+       assertFalse(sistema.getReservas().contains(reserva2));
     }
 
     @Test
     public void exibirVoosTest() {
-        List<Voo> voosEsperados = new ArrayList<>();
+        ArrayList<Voo> voosEsperados = new ArrayList<>();
         voosEsperados.add(voo1);
         voosEsperados.add(voo2);
 
-        List<Voo> voosExibidos = sistema.getListaDeVoos();
+        ArrayList<Voo> voosExibidos = sistema.getVoos();
 
         assertEquals(voosEsperados.size(), voosExibidos.size());
     }
