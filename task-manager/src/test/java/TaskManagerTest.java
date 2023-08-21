@@ -33,7 +33,24 @@ public class TaskManagerTest {
         Assert.assertEquals("Task Description 1", taskManager.getTask(0).getDescription());
         Assert.assertEquals(Priority.BAIXA, taskManager.getTask(1).getPriority());
     }
+    @Test
+    public void testSortByPriority() throws Exception {
+        taskManager.sortByPriority();
 
+        Assert.assertEquals("Test Task 1", taskManager.listTasks().get(0).getTitle());
+        Assert.assertEquals("Test Task 2", taskManager.listTasks().get(1).getTitle());
+        Assert.assertEquals("Test Task 3", taskManager.listTasks().get(2).getTitle());
+    }
+
+
+    @Test
+    public void testSortByDeadline() throws Exception {
+        taskManager.sortByDeadline();
+
+        Assert.assertEquals("Test Task 1", taskManager.listTasks().get(1).getTitle());
+        Assert.assertEquals("Test Task 2", taskManager.listTasks().get(0).getTitle());
+        Assert.assertEquals("Test Task 3", taskManager.listTasks().get(2).getTitle());
+    }
     @Test
     public void testUpdateTask() throws Exception {
         taskManager.updateTask(0, "Test Task 1 Updated", "Test Description 1 Updated",  LocalDate.parse("2023-08-28"), Priority.ALTA);
@@ -44,24 +61,6 @@ public class TaskManagerTest {
 
     }
 
-//   @Test
-//    public void testSortByPriority() throws Exception {
-//        taskManager.sortByPriority();
-//
-//        Assert.assertEquals("Test Task 1 Update", taskManager.listTasks().get(0).getTitle());
-//        Assert.assertEquals("Test Task 2", taskManager.listTasks().get(1).getTitle());
-//        Assert.assertEquals("Test Task 3", taskManager.listTasks().get(2).getTitle());
-//    }
-//
-//
-//    @Test
-//    public void testSortByDeadline() throws Exception {
-//        taskManager.sortByDeadline();
-//
-//        Assert.assertEquals("Test Task 1", taskManager.listTasks().get(1).getTitle());
-//        Assert.assertEquals("Test Task 2", taskManager.listTasks().get(0).getTitle());
-//        Assert.assertEquals("Test Task 3", taskManager.listTasks().get(2).getTitle());
-//    }
 
     @Test
     public void testDeleteTask() throws Exception {
