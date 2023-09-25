@@ -1,3 +1,4 @@
+import org.example.sisvoo.Voo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

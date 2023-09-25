@@ -1,3 +1,5 @@
+package org.example.sisvoo;
+
 public class Voo {
     private String numero;
     private String origem;

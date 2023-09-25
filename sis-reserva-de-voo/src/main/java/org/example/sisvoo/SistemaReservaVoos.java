@@ -1,5 +1,6 @@
+package org.example.sisvoo;
+
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class SistemaReservaVoos {
     private ArrayList<Voo> voos;

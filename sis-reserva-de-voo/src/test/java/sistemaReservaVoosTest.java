@@ -1,3 +1,6 @@
+import org.example.sisvoo.Reserva;
+import org.example.sisvoo.SistemaReservaVoos;
+import org.example.sisvoo.Voo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
@@ -35,7 +38,7 @@ public class sistemaReservaVoosTest {
     }
 
     @Test
-    @DisplayName("Reserva um voo")
+    @DisplayName("org.example.sisvoo.Reserva um voo")
     @Order(1)
     public void reservarVooTest() {
         assertNotNull(reserva1);

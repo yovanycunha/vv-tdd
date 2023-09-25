@@ -1,3 +1,5 @@
+package org.example.sisvoo;
+
 public class Reserva {
 
     private Voo voo;
