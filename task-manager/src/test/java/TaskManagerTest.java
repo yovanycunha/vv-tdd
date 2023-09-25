@@ -60,7 +60,7 @@ public class TaskManagerTest {
         assertEquals("Test Task 2", taskManager.listTasks().get(0).getTitle());
         assertEquals("Test Task 3", taskManager.listTasks().get(2).getTitle());
     }
-   
+
     @DisplayName("Test Update Task")
     @Order(4)
     @RepeatedTest(3)
