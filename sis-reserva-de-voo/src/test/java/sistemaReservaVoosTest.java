@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -13,6 +15,8 @@ public class sistemaReservaVoosTest {
     private Reserva reserva2;
 
     @BeforeEach
+    @DisplayName("Configura o sistema de reserva de voos")
+    @Order(0)
     public void setUp() {
         sistema = new SistemaReservaVoos();
         voo1 = new Voo("F123","São Paulo", "Rio de Janeiro", "2023-09-15", " 08:30", 220.00, 100);
@@ -24,23 +28,31 @@ public class sistemaReservaVoosTest {
     }
 
     @Test
+    @DisplayName("Adiciona um voo ao sistema")
+    @Order(1)
     public void adicionarVooTest() {
         assertTrue(sistema.getVoos().contains(voo1));
     }
 
     @Test
+    @DisplayName("Reserva um voo")
+    @Order(1)
     public void reservarVooTest() {
         assertNotNull(reserva1);
         assertTrue(sistema.getReservas().contains(reserva1));
     }
 
    @Test
+   @DisplayName("Cancela uma reserva")
+   @Order(3)
    public void cancelarReservaTest() {
        assertTrue(sistema.cancelarReserva(reserva2));
        assertFalse(sistema.getReservas().contains(reserva2));
     }
 
     @Test
+    @DisplayName("Exibe os voos disponíveis")
+    @Order(2)
     public void exibirVoosTest() {
         ArrayList<Voo> voosEsperados = new ArrayList<>();
         voosEsperados.add(voo1);
